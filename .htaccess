@@ -1,0 +1,9 @@
+# On active le module de réécriture
+RewriteEngine on
+# On test si un fichier existe et on l'affiche
+RewriteCond %{REQUEST_FILENAME} !-f
+# On test si un répertoire existe et on l'affiche
+RewriteCond %{REQUEST_FILENAME} !-d
+# Si aucun fichier ou répertoire n'existe on applique la régle de réécriture
+# Dans ce cas on prend toute l'URL est on la met dans $_GET['ws']
+RewriteRule ^(.*)$ index.php?ws=$1 [L]
