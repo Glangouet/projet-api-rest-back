@@ -14,8 +14,6 @@ include_once 'class/User.class.php';
 include_once 'class/UserDao.class.php';
 include_once 'class/UserWS.class.php';
 
-var_dump("je suis bien ici ");
-
 /**
  * Fonction principale
  */
@@ -26,12 +24,20 @@ function main()
     // Si la méthode est de type option on ne continue pas l'exécution du script
     // Cela arrive avec certains navigateurs
     if ($method == "OPTIONS") {
+        echo "Hello options";
         header('Access-Control-Allow-Origin: *');
 
-        exit ();
+        exit();
     }
     // On appel notre Web Service
-    UserWS::execute($method);
+    try {
+        UserWS::execute($method);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+        echo $e->getCode();
+        echo $e->getFile();
+        echo $e->getLine();
+    }
 }
 
 // Lancement de l'application
