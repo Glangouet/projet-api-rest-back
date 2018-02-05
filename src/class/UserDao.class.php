@@ -119,7 +119,7 @@ class UserDao
     private static function getCurrentId()
     {
         $user_id = UserDao::getMemcacheServer()->get(UserDao::USER_ID);
-        if (!isset ($user_id) || !$user_id) {
+        if (!isset($user_id) || !$user_id) {
             $user_id = 0;
             UserDao::getMemcacheServer()->set(UserDao::USER_ID, $user_id);
         }

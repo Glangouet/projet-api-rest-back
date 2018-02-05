@@ -14,6 +14,8 @@ include_once 'class/User.class.php';
 include_once 'class/UserDao.class.php';
 include_once 'class/UserWS.class.php';
 
+var_dump("je suis bien ici ");
+
 /**
  * Fonction principale
  */
